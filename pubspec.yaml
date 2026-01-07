@@ -75,6 +75,10 @@ dependencies:
   
   # Other
   url_launcher: ^6.3.2
+  
+  # Supabase Backend
+  supabase_flutter: ^2.8.4
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:

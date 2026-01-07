@@ -23,11 +23,15 @@ class AuthGuestMode extends AuthState {
 
 class AuthAuthenticated extends AuthState {
   final UserModel user;
+  final bool isUpdating;
 
-  const AuthAuthenticated({required this.user});
+  const AuthAuthenticated({
+    required this.user,
+    this.isUpdating = false,
+  });
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [user, isUpdating];
 }
 
 class AuthUnauthenticated extends AuthState {}
@@ -39,4 +43,13 @@ class AuthError extends AuthState {
 
   @override
   List<Object?> get props => [message];
+}
+
+class AuthPasswordResetSent extends AuthState {
+  final String email;
+
+  const AuthPasswordResetSent({required this.email});
+
+  @override
+  List<Object?> get props => [email];
 }

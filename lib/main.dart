@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'backend/backend.dart';
 import 'core/theme/app_theme.dart';
 import 'presentation/blocs/auth/auth_bloc.dart';
 import 'presentation/blocs/auth/auth_event.dart';
@@ -13,6 +15,14 @@ import 'presentation/pages/dashboard/dashboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Supabase backend
+  await BackendConfig.initialize(
+    enableLogging: true, // Set to false in production
+  );
+  
+  // Setup dependency injection
+  BackendProviders.setup();
   
   // Set system UI overlay style for dark theme
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

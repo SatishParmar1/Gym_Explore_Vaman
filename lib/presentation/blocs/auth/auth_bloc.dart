@@ -104,16 +104,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final currentUser = (state as AuthAuthenticated).user;
       
       // TODO: Update user in repository
-      final updatedUser = currentUser.copyWith(
+   /*   final updatedUser = currentUser.copyWith(
         name: event.userData['name'],
         age: event.userData['age'],
         gender: event.userData['gender'],
         height: event.userData['height'],
         weight: event.userData['weight'],
         goal: event.userData['goal'],
-      );
-
-      emit(AuthAuthenticated(user: updatedUser));
+      );*/
+/*
+      emit(AuthAuthenticated(user: updatedUser));*/
     }
   }
 
