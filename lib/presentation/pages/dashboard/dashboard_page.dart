@@ -24,7 +24,7 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   @override
   void initState() {
@@ -37,15 +37,9 @@ class _DashboardPageState extends State<DashboardPage> {
       case 0:
         return _buildHomeTab();
       case 1:
-        return BlocProvider(
-          create: (context) => DietBloc(),
-          child: const DietPage(),
-        );
+        return DietPage();
       case 2:
-        return BlocProvider(
-          create: (context) => WorkoutBloc(),
-          child: const WorkoutPage(),
-        );
+        return WorkoutPage();
       case 3:
         return _buildChallengesTab();
       case 4:

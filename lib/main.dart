@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gymexplore/presentation/blocs/diet/diet_bloc.dart';
+import 'package:gymexplore/presentation/blocs/workout/workout_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'backend/backend.dart';
@@ -48,12 +50,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => AuthBloc()..add(AuthCheckRequested()),
-        ),
-        BlocProvider(
-          create: (context) => DashboardBloc(),
-        ),
+        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => DashboardBloc()),
+        BlocProvider(create: (context) => DietBloc()),
+        BlocProvider(create: (context) => WorkoutBloc()),
       ],
       child: MaterialApp(
         title: 'FitSync',
